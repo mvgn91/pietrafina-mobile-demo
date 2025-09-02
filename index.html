@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Pietra Fina - Demo Ejecutivo | Cocinas Italianas & Piedra Natural</title>
     <!-- Logo fix: Updated to logo-pietra-fina.png -->
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#ffffff">
     
     <style>
         /* ===== MOBILE FIRST DEMO ===== */
@@ -21,13 +21,20 @@
             --secondary: #dc2626;
             --accent: #ef4444;
             --white: #ffffff;
+            --black: #000000;
+            --gray-50: #fafafa;
             --gray-100: #f5f5f5;
             --gray-200: #e5e5e5;
-            --gray-800: #1f1f1f;
-            --gray-900: #0a0a0a;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
             
-            --font-display: 'Fraunces', serif;
-            --font-body: 'Poppins', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Helvetica', Arial, sans-serif;
 
             /* Tipografía Estandarizada */
             --text-xs: 0.75rem;      /* 12px */
@@ -69,6 +76,7 @@
         body {
             font-family: var(--font-body);
             background: var(--white);
+            color: var(--black);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
@@ -82,7 +90,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(180deg, var(--gray-900) 0%, var(--primary) 100%);
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
             overflow: hidden;
         }
 
@@ -95,8 +103,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.1) 0%, transparent 60%);
+                radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.03) 0%, transparent 60%);
             z-index: 1;
             animation: backgroundShift 20s ease-in-out infinite;
         }
@@ -109,8 +117,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 60% 20%, rgba(220, 38, 38, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 30% 80%, rgba(239, 68, 68, 0.12) 0%, transparent 55%);
+                radial-gradient(circle at 60% 20%, rgba(220, 38, 38, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 30% 80%, rgba(239, 68, 68, 0.04) 0%, transparent 55%);
             z-index: 1;
             animation: backgroundShift 25s ease-in-out infinite reverse;
         }
@@ -129,8 +137,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.1;
-            filter: grayscale(100%) brightness(0.2) contrast(1.5);
+            opacity: 0.05;
+            filter: grayscale(100%) brightness(0.8) contrast(1.2);
             animation: imageFloat 30s ease-in-out infinite;
         }
 
@@ -141,7 +149,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
             z-index: 2;
             animation: overlayPulse 15s ease-in-out infinite;
         }
@@ -151,7 +159,7 @@
             position: relative;
             z-index: 3;
             text-align: center;
-            color: var(--white);
+            color: var(--black);
             padding: var(--space-lg) var(--space-md);
         }
 
@@ -167,7 +175,6 @@
             object-fit: contain;
             margin: 0 auto var(--space-sm);
             display: block;
-            filter: brightness(0) invert(1);
         }
 
         .hero-brand {
@@ -192,7 +199,7 @@
             font-size: var(--text-lg);
             line-height: 1.5;
             margin-bottom: var(--space-lg);
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-700);
             max-width: 280px;
             margin-left: auto;
             margin-right: auto;
@@ -239,14 +246,14 @@
         }
 
         .btn-outline {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--black);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
         }
 
         .btn-outline:active {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.1);
             transform: scale(0.98);
         }
 
@@ -261,10 +268,10 @@
         .stat-item {
             text-align: center;
             padding: var(--space-sm);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 12px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .stat-number {
@@ -278,7 +285,7 @@
 
         .stat-label {
             font-size: 0.6875rem;
-            opacity: 0.9;
+            color: var(--gray-600);
             font-weight: 500;
             line-height: 1.2;
         }
@@ -336,7 +343,7 @@
                  /* Cocinas Italianas */
          .cocinas-section {
              position: relative;
-             background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+             background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
              overflow: hidden;
          }
 
@@ -361,12 +368,12 @@
          }
 
          .cocina-card {
-             background: rgba(255, 255, 255, 0.15);
+             background: rgba(255, 255, 255, 0.8);
              backdrop-filter: blur(20px);
              border-radius: 20px;
              padding: var(--space-md);
              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-             border: 1px solid rgba(255, 255, 255, 0.2);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              border-left: 4px solid var(--secondary);
              position: relative;
              overflow: hidden;
@@ -456,9 +463,9 @@
              display: flex;
              align-items: center;
              gap: var(--space-md);
-             background: rgba(255, 255, 255, 0.15);
+             background: rgba(255, 255, 255, 0.8);
              backdrop-filter: blur(20px);
-             border: 1px solid rgba(255, 255, 255, 0.2);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              border-radius: 20px;
              padding: var(--space-lg);
              max-width: 500px;
@@ -596,13 +603,15 @@
          }
 
          .proyecto-card {
-             background: rgba(255, 255, 255, 0.2);
+             background: rgba(255, 255, 255, 0.8);
              backdrop-filter: blur(20px);
              border-radius: 20px;
              overflow: hidden;
              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-             border: 1px solid rgba(255, 255, 255, 0.3);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              position: relative;
+             cursor: pointer;
+             transition: var(--transition);
          }
 
          .proyecto-card::before {
@@ -618,15 +627,28 @@
 
                  .proyecto-image {
              height: 120px;
-             background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+             background: linear-gradient(45deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
              backdrop-filter: blur(10px);
              display: flex;
              align-items: center;
              justify-content: center;
-             color: var(--gray-800);
+             color: var(--gray-600);
              font-size: 0.875rem;
              position: relative;
              z-index: 2;
+             overflow: hidden;
+         }
+
+         .proyecto-image img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             object-position: center;
+             transition: var(--transition);
+         }
+
+         .proyecto-card:hover .proyecto-image img {
+             transform: scale(1.05);
          }
 
          .proyecto-info {
@@ -738,7 +760,7 @@
                  /* CTA Final */
          .cta-section {
              position: relative;
-             background: linear-gradient(135deg, var(--gray-900) 0%, var(--primary) 100%);
+             background: linear-gradient(135deg, var(--black) 0%, var(--gray-800) 100%);
              color: var(--white);
              text-align: center;
              overflow: hidden;
@@ -818,31 +840,31 @@
         @keyframes imageFloat {
             0% {
                 transform: translateX(0) translateY(0) scale(1);
-                filter: grayscale(100%) brightness(0.2) contrast(1.5);
+                filter: grayscale(100%) brightness(0.8) contrast(1.2);
             }
             33% {
                 transform: translateX(-15px) translateY(-8px) scale(1.02);
-                filter: grayscale(100%) brightness(0.25) contrast(1.4);
+                filter: grayscale(100%) brightness(0.85) contrast(1.1);
             }
             66% {
                 transform: translateX(10px) translateY(-12px) scale(0.98);
-                filter: grayscale(100%) brightness(0.18) contrast(1.6);
+                filter: grayscale(100%) brightness(0.75) contrast(1.3);
             }
             100% {
                 transform: translateX(0) translateY(0) scale(1);
-                filter: grayscale(100%) brightness(0.2) contrast(1.5);
+                filter: grayscale(100%) brightness(0.8) contrast(1.2);
             }
         }
 
         @keyframes overlayPulse {
             0% {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
             }
             50% {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.92) 100%);
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.25) 100%);
             }
             100% {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
             }
         }
 
@@ -1117,21 +1139,21 @@
 
          /* Mejoras de glassmorphism */
          .section-title {
-             background: rgba(255, 255, 255, 0.1);
+             background: rgba(0, 0, 0, 0.05);
              backdrop-filter: blur(10px);
              border-radius: 15px;
              padding: var(--space-sm) var(--space-md);
-             border: 1px solid rgba(255, 255, 255, 0.2);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              display: inline-block;
              margin-bottom: var(--space-lg);
          }
 
          .section-subtitle {
-             background: rgba(255, 255, 255, 0.05);
+             background: rgba(0, 0, 0, 0.03);
              backdrop-filter: blur(5px);
              border-radius: 10px;
              padding: var(--space-sm);
-             border: 1px solid rgba(255, 255, 255, 0.1);
+             border: 1px solid rgba(0, 0, 0, 0.05);
              display: inline-block;
          }
 
@@ -1146,9 +1168,9 @@
          .menu-toggle {
              width: 40px;
              height: 40px;
-             background: rgba(0, 0, 0, 0.8);
+             background: rgba(255, 255, 255, 0.9);
              backdrop-filter: blur(20px);
-             border: 1px solid rgba(255, 255, 255, 0.2);
+             border: 1px solid rgba(0, 0, 0, 0.2);
              border-radius: 50%;
              display: flex;
              flex-direction: column;
@@ -1166,7 +1188,7 @@
          .menu-toggle span {
              width: 18px;
              height: 2px;
-             background: var(--white);
+             background: var(--black);
              margin: 2px 0;
              transition: var(--transition);
              border-radius: 1px;
@@ -1355,12 +1377,12 @@
          }
 
          .producto-card {
-             background: rgba(255, 255, 255, 0.2);
+             background: rgba(255, 255, 255, 0.8);
              backdrop-filter: blur(20px);
              border-radius: 20px;
              overflow: hidden;
              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-             border: 1px solid rgba(255, 255, 255, 0.3);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              transition: var(--transition);
          }
 
@@ -1369,28 +1391,43 @@
              box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
          }
 
-         .producto-image {
-             height: 120px;
-             background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-             backdrop-filter: blur(10px);
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             color: var(--secondary);
-             font-size: 2rem;
-         }
+                 .producto-image {
+            height: 200px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 2rem;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            position: relative;
+        }
+        
+        .producto-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: var(--transition);
+        }
+        
+        .producto-card:hover .producto-image img {
+            transform: scale(1.02);
+        }
 
          .producto-info {
              padding: var(--space-md);
          }
 
-         .producto-title {
-             font-family: var(--font-display);
-             font-size: var(--text-lg);
-             font-weight: 700;
-             color: var(--gray-900);
-             margin-bottom: var(--space-sm);
-         }
+                 .producto-title {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
 
          .producto-description {
              font-size: 0.875rem;
@@ -1399,11 +1436,39 @@
              line-height: 1.5;
          }
 
-         .producto-precio {
-             font-size: 1rem;
-             font-weight: 700;
-             color: var(--secondary);
-         }
+                 .producto-precio {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .btn-comprar {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            margin-top: var(--space-md);
+        }
+        
+        .btn-comprar:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .btn-comprar i {
+            width: 16px;
+            height: 16px;
+        }
 
          /* Lotes Premium Section */
          .lotes-section {
@@ -1433,12 +1498,12 @@
          }
 
          .lote-card {
-             background: rgba(255, 255, 255, 0.15);
+             background: rgba(255, 255, 255, 0.8);
              backdrop-filter: blur(20px);
              border-radius: 20px;
              padding: var(--space-lg);
              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-             border: 1px solid rgba(255, 255, 255, 0.2);
+             border: 1px solid rgba(0, 0, 0, 0.1);
              transition: var(--transition);
          }
 
@@ -1499,7 +1564,7 @@
          /* Quiénes Somos Section */
          .quienes-section {
              position: relative;
-             background: linear-gradient(135deg, var(--gray-900) 0%, var(--primary) 100%);
+             background: linear-gradient(135deg, var(--black) 0%, var(--gray-800) 100%);
              overflow: hidden;
          }
 
@@ -1578,11 +1643,27 @@
              background: rgba(255, 255, 255, 0.15);
          }
 
-         .visual-card i {
-             font-size: 2.5rem;
-             color: var(--secondary);
-             margin-bottom: var(--space-md);
-         }
+                 .visual-card i {
+            font-size: 2.5rem;
+            color: var(--white) !important;
+            margin-bottom: var(--space-md);
+        }
+        
+        .visual-card i svg {
+            color: var(--white) !important;
+            fill: var(--white) !important;
+            stroke: var(--white) !important;
+        }
+        
+        .white-icon {
+            color: var(--white) !important;
+        }
+        
+        .white-icon svg {
+            color: var(--white) !important;
+            fill: var(--white) !important;
+            stroke: var(--white) !important;
+        }
 
          .visual-card h4 {
              font-family: var(--font-display);
@@ -1616,7 +1697,7 @@
 
          /* Footer */
          .footer {
-             background: linear-gradient(135deg, var(--gray-900) 0%, var(--primary) 100%);
+             background: linear-gradient(135deg, var(--black) 0%, var(--gray-800) 100%);
              color: var(--white);
              padding: var(--space-lg) var(--space-md);
          }
@@ -1745,15 +1826,553 @@
                  font-size: var(--text-xs);
              }
          }
+
+         /* ===== MODAL DE FICHAS TÉCNICAS ===== */
+         .project-modal {
+             position: fixed;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: rgba(0, 0, 0, 0.8);
+             backdrop-filter: blur(10px);
+             z-index: 2000;
+             opacity: 0;
+             visibility: hidden;
+             transition: var(--transition);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             padding: var(--space-md);
+         }
+
+         .project-modal.active {
+             opacity: 1;
+             visibility: visible;
+         }
+
+         .modal-content {
+             background: var(--white);
+             border-radius: 20px;
+             max-width: 600px;
+             width: 100%;
+             max-height: 90vh;
+             overflow-y: auto;
+             position: relative;
+             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+             transform: scale(0.9) translateY(20px);
+             transition: var(--transition);
+         }
+
+         .project-modal.active .modal-content {
+             transform: scale(1) translateY(0);
+         }
+
+         .modal-header {
+             position: relative;
+             border-radius: 20px 20px 0 0;
+             overflow: hidden;
+         }
+
+         .modal-header img {
+             width: 100%;
+             height: auto;
+             display: block;
+         }
+
+         .modal-close {
+             position: absolute;
+             top: var(--space-md);
+             right: var(--space-md);
+             width: 40px;
+             height: 40px;
+             background: rgba(255, 255, 255, 0.9);
+             backdrop-filter: blur(10px);
+             border: 1px solid rgba(0, 0, 0, 0.1);
+             border-radius: 50%;
+             color: var(--black);
+             font-size: 1.5rem;
+             cursor: pointer;
+             transition: var(--transition);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             z-index: 10;
+         }
+
+         .modal-close:hover {
+             background: var(--secondary);
+             color: var(--white);
+             transform: scale(1.1);
+         }
+
+         .modal-body {
+             padding: var(--space-xl);
+         }
+
+         .modal-title {
+             font-family: var(--font-display);
+             font-size: var(--text-3xl);
+             font-weight: 700;
+             color: var(--black);
+             margin-bottom: var(--space-sm);
+         }
+
+         .modal-subtitle {
+             font-size: var(--text-lg);
+             color: var(--gray-600);
+             margin-bottom: var(--space-lg);
+             display: flex;
+             align-items: center;
+             gap: var(--space-sm);
+         }
+
+         .modal-subtitle .year-badge {
+             background: var(--secondary);
+             color: var(--white);
+             padding: 0.25rem 0.75rem;
+             border-radius: 20px;
+             font-size: var(--text-sm);
+             font-weight: 600;
+         }
+
+         /* ===== TABS SYSTEM ===== */
+         .modal-tabs {
+             display: flex;
+             border-bottom: 2px solid var(--gray-200);
+             margin-bottom: var(--space-lg);
+         }
+
+         .tab-button {
+             flex: 1;
+             padding: var(--space-sm) var(--space-md);
+             background: none;
+             border: none;
+             font-size: var(--text-sm);
+             font-weight: 600;
+             color: var(--gray-500);
+             cursor: pointer;
+             transition: var(--transition);
+             border-bottom: 2px solid transparent;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             gap: var(--space-xs);
+         }
+
+         .tab-icon {
+             width: 16px;
+             height: 16px;
+             stroke-width: 2;
+         }
+
+         .tab-button.active {
+             color: var(--secondary);
+             border-bottom-color: var(--secondary);
+         }
+
+         .tab-button:hover {
+             color: var(--secondary);
+         }
+
+         .tab-content {
+             display: none;
+         }
+
+         .tab-content.active {
+             display: block;
+         }
+
+         .modal-description {
+             font-size: var(--text-base);
+             color: var(--gray-700);
+             line-height: 1.6;
+             margin-bottom: var(--space-lg);
+         }
+
+         .modal-specs {
+             display: flex;
+             flex-direction: column;
+             gap: var(--space-sm);
+             margin-bottom: var(--space-lg);
+         }
+
+         .spec-item {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             padding: var(--space-sm) 0;
+             border-bottom: 1px solid var(--gray-200);
+         }
+
+         .spec-item:last-child {
+             border-bottom: none;
+         }
+
+         .spec-label {
+             font-size: var(--text-sm);
+             color: var(--gray-600);
+             font-weight: 500;
+         }
+
+         .spec-value {
+             font-size: var(--text-sm);
+             color: var(--black);
+             font-weight: 600;
+             text-align: right;
+         }
+
+
+
+
+
+         /* Modal Responsive */
+         @media (max-width: 768px) {
+             .project-modal {
+                 padding: var(--space-sm);
+             }
+
+             .modal-content {
+                 max-height: 95vh;
+                 max-width: 95vw;
+             }
+
+             .modal-body {
+                 padding: var(--space-lg);
+             }
+
+             .modal-title {
+                 font-size: var(--text-2xl);
+             }
+
+             .spec-item {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 0.25rem;
+             }
+
+             .spec-value {
+                 text-align: left;
+             }
+         }
+
+         @media (max-width: 480px) {
+             .modal-body {
+                 padding: var(--space-md);
+             }
+
+             .modal-title {
+                 font-size: var(--text-xl);
+             }
+
+             .modal-subtitle {
+                 font-size: var(--text-base);
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: var(--space-xs);
+             }
+         }
+        
+        /* ===== MODAL DE COMPRA ===== */
+        .purchase-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .purchase-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .purchase-modal .modal-content {
+            max-width: 450px;
+            max-height: 90vh;
+            margin: 2% auto;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .purchase-modal .modal-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--gray-50);
+        }
+        
+        .purchase-modal .modal-title {
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--black);
+            margin: 0;
+        }
+        
+        .purchase-modal .modal-body {
+            padding: var(--space-lg);
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .product-details {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            padding: var(--space-md);
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .product-image-large {
+            flex: 1;
+            height: 150px;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+        
+        .product-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .price-info {
+            margin-top: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+        
+        .price-label {
+            display: block;
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .price-value {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .quantity-selector {
+            margin-bottom: var(--space-md);
+            padding: var(--space-md);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .quantity-selector label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--gray-800);
+            text-align: center;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--gray-300);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        
+        #quantity {
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-md);
+            font-weight: 600;
+        }
+        
+        .total-section {
+            padding: var(--space-sm);
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--text-md);
+            font-weight: 600;
+        }
+        
+        .btn-whatsapp {
+            width: 100%;
+            padding: var(--space-md);
+            background: #25D366;
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .btn-whatsapp i {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .tienda-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .cart-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+        }
+        
+        .cart-indicator i {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .btn-view-cart {
+            background: var(--white);
+            color: var(--secondary);
+            border: none;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-view-cart:hover {
+            background: var(--gray-100);
+        }
+        
+        .btn-add-cart {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .btn-add-cart:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .btn-add-cart i {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .purchase-modal .modal-content {
+                margin: 5% 3%;
+                max-width: none;
+                max-height: 95vh;
+            }
+            
+            .purchase-modal .modal-body {
+                padding: var(--space-md);
+            }
+            
+            .product-details {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .product-image-large {
+                height: 120px;
+            }
+            
+            .quantity-controls {
+                justify-content: center;
+            }
+        }
     </style>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Helvetica:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-         <!-- Icons -->
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
  </head>
  <body>
      <!-- Menú Hamburguesa -->
@@ -1765,11 +2384,11 @@
          </div>
          <div class="menu-overlay" id="menuOverlay">
              <div class="menu-content">
-                 <button class="menu-close" id="menuClose">
-                     <i class='bx bx-x'></i>
-                 </button>
+                                 <button class="menu-close" id="menuClose">
+                    <i data-lucide="x"></i>
+                </button>
                  <div class="menu-header">
-                     <div class="menu-logo" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; margin: 0 auto;">PF</div>
+                     <div class="menu-logo" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; margin: 0 auto;">PF</div>
                      <h3>PIETRA FINA</h3>
                  </div>
                  <ul class="menu-links">
@@ -1786,10 +2405,10 @@
          </div>
      </nav>
 
-     <!-- Botón Scroll to Top -->
-     <button class="scroll-to-top" id="scrollToTop">
-         <i class='bx bx-chevron-up'></i>
-     </button>
+         <!-- Botón Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
 
 
          <!-- Hero Section -->
@@ -1815,7 +2434,7 @@
         <div class="hero-content">
                          <!-- Logo -->
              <div class="hero-logo">
-                 <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; margin: 0 auto var(--space-sm);">PF</div>
+                 <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; margin: 0 auto var(--space-sm);">PF</div>
                  <div class="hero-brand">PIETRA FINA</div>
              </div>
             
@@ -1826,17 +2445,17 @@
             
             <!-- Descripción -->
             <p class="hero-description">
-                Cocinas italianas, proyectos hoteleros y comerciales. Tiempos de entrega que marcan la diferencia.
+                Transformamos espacios con la elegancia de la piedra natural y la maestría de cuatro décadas de experiencia.
             </p>
             
             <!-- Botones -->
             <div class="hero-actions">
                 <a href="#proyectos" class="btn btn-primary">
-                    <i class='bx bx-folder-open'></i>
+                    <i data-lucide="folder-open"></i>
                     Ver Proyectos
                 </a>
                 <a href="https://wa.me/523331050996?text=Hola%20Nicolás!%20Vi%20su%20página%20y%20estoy%20interesado%20en%20sus%20servicios%20de%20piedra%20natural%20y%20cocinas%20italianas%20😊" class="btn btn-outline" target="_blank">
-                    <i class='bx bxl-whatsapp'></i>
+                    <i data-lucide="message-circle"></i>
                     Contacto
                 </a>
             </div>
@@ -1877,17 +2496,17 @@
             <div class="quienes-right">
                 <div class="quienes-visual">
                     <div class="visual-card">
-                        <i class='bx bx-award'></i>
+                        <i data-lucide="award" class="white-icon"></i>
                         <h4>Liderazgo</h4>
                         <p>Pioneros en piedra natural</p>
                     </div>
                     <div class="visual-card">
-                        <i class='bx bx-buildings'></i>
+                        <i data-lucide="building-2" class="white-icon"></i>
                         <h4>Proyectos</h4>
                         <p>Hoteles, comerciales y residenciales</p>
                     </div>
                     <div class="visual-card">
-                        <i class='bx bx-diamond'></i>
+                        <i data-lucide="gem" class="white-icon"></i>
                         <h4>Calidad</h4>
                         <p>Materiales de la más alta gama</p>
                     </div>
@@ -1947,7 +2566,7 @@
          <div class="ventaja-content">
              <div class="ventaja-card">
                  <div class="ventaja-icon">
-                     <i class='bx bx-time-five'></i>
+                     <i data-lucide="clock"></i>
                  </div>
                  <div class="ventaja-text">
                      <h3 class="ventaja-title">Tiempos de Entrega Competitivos</h3>
@@ -1971,7 +2590,7 @@
         <div class="proyectos-grid">
             <div class="proyecto-card">
                 <div class="proyecto-image">
-                    <i class='bx bx-building-house'></i>
+                    <img src="assets/fotos miniatura lookbook/kingdom of the sun.png" alt="Kingdom of the Sun - Nuevo Nayarit" />
                 </div>
                 <div class="proyecto-info">
                     <h3 class="proyecto-title">Kingdom of the Sun</h3>
@@ -1982,7 +2601,7 @@
             
             <div class="proyecto-card">
                 <div class="proyecto-image">
-                    <i class='bx bx-building-house'></i>
+                    <img src="assets/fotos miniatura lookbook/mismaloya.png" alt="Hotel Barceló La Joya - Mismaloya, Puerto Vallarta" />
                 </div>
                 <div class="proyecto-info">
                     <h3 class="proyecto-title">Hotel Barceló La Joya</h3>
@@ -1993,7 +2612,7 @@
             
             <div class="proyecto-card">
                 <div class="proyecto-image">
-                    <i class='bx bx-building-house'></i>
+                    <img src="assets/fotos miniatura lookbook/grandluxxe.png" alt="Grand Luxxe Jungle - Riviera Maya" />
                 </div>
                 <div class="proyecto-info">
                     <h3 class="proyecto-title">Grand Luxxe Jungle</h3>
@@ -2005,9 +2624,9 @@
         
         <div class="proyectos-cta">
             <button class="ver-mas-btn" id="verMasBtn">
-                <i class='bx bx-images'></i>
+                <i data-lucide="images"></i>
                 <span>VER MÁS PROYECTOS</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <i data-lucide="arrow-right"></i>
             </button>
         </div>
         </div>
@@ -2017,51 +2636,74 @@
      <section class="section tienda-section parallax-section" id="tienda">
          <div class="parallax-bg"></div>
          <div class="parallax-content">
-         <h2 class="section-title">Accesorios de Piedra Natural</h2>
-         <p class="section-subtitle">Complementos elegantes para tu hogar</p>
+                 <div class="tienda-header">
+            <h2 class="section-title">Tienda</h2>
+            <p class="section-subtitle">Productos de piedra natural y accesorios para tu hogar</p>
+            <div class="cart-indicator" id="cartIndicator" style="display: none;">
+                <i data-lucide="shopping-cart"></i>
+                <span id="cartCount">0</span>
+                <button class="btn-view-cart" onclick="viewCart()">Ver Carrito</button>
+            </div>
+        </div>
          
          <div class="tienda-grid">
-             <div class="producto-card">
+             <div class="producto-card" data-product="lazy-susan">
                  <div class="producto-image">
-                     <i class='bx bx-refresh'></i>
+                     <img src="assets/fotos tienda/LAZY SUSAN.png" alt="Lazy Susan de piedra natural" />
                  </div>
                  <div class="producto-info">
                      <h3 class="producto-title">Lazy Susan</h3>
                      <p class="producto-description">Mesa giratoria de piedra natural para facilitar el servicio en la mesa.</p>
-                     <span class="producto-precio">Desde $2,500</span>
+                     <span class="producto-precio">$2,500 c/u</span>
+                     <button class="btn-comprar" onclick="openPurchaseModal('lazy-susan')">
+                         <i data-lucide="shopping-cart"></i>
+                         Consultar
+                     </button>
                  </div>
              </div>
              
-             <div class="producto-card">
+             <div class="producto-card" data-product="tabla-picar">
                  <div class="producto-image">
-                     <i class='bx bx-cut'></i>
+                     <img src="assets/fotos tienda/TABLA.png" alt="Tabla de picar de piedra natural" />
                  </div>
                  <div class="producto-info">
                      <h3 class="producto-title">Tablas de Picar</h3>
                      <p class="producto-description">Tablas de corte en mármol y granito, higiénicas y duraderas.</p>
-                     <span class="producto-precio">Desde $1,800</span>
+                     <span class="producto-precio">$1,800 c/u</span>
+                     <button class="btn-comprar" onclick="openPurchaseModal('tabla-picar')">
+                         <i data-lucide="shopping-cart"></i>
+                         Consultar
+                     </button>
                  </div>
              </div>
              
-             <div class="producto-card">
+             <div class="producto-card" data-product="macetero">
                  <div class="producto-image">
-                     <i class='bx bx-coffee'></i>
+                     <img src="assets/fotos tienda/MACETERO.png" alt="Macetero de piedra natural" />
                  </div>
                  <div class="producto-info">
-                     <h3 class="producto-title">Mesas Ocasionales</h3>
-                     <p class="producto-description">Mesas auxiliares y de centro en piedra natural de alta calidad.</p>
-                     <span class="producto-precio">Desde $4,200</span>
+                     <h3 class="producto-title">Maceteros de Piedra</h3>
+                     <p class="producto-description">Maceteros elegantes tallados en piedra natural para plantas y decoración.</p>
+                     <span class="producto-precio">$1,500 c/u</span>
+                     <button class="btn-comprar" onclick="openPurchaseModal('macetero')">
+                         <i data-lucide="shopping-cart"></i>
+                         Consultar
+                     </button>
                  </div>
              </div>
              
-             <div class="producto-card">
+             <div class="producto-card" data-product="porta-kleenex">
                  <div class="producto-image">
-                     <i class='bx bx-box'></i>
+                     <i data-lucide="package"></i>
                  </div>
                  <div class="producto-info">
                      <h3 class="producto-title">Porta Kleenex de Piedra</h3>
                      <p class="producto-description">Elegantes porta pañuelos tallados en piedra natural.</p>
-                     <span class="producto-precio">Desde $1,200</span>
+                     <span class="producto-precio">$1,200 c/u</span>
+                     <button class="btn-comprar" onclick="openPurchaseModal('porta-kleenex')">
+                         <i data-lucide="shopping-cart"></i>
+                         Consultar
+                     </button>
                  </div>
              </div>
          </div>
@@ -2140,12 +2782,12 @@
         
         <div class="hero-actions">
             <a href="tel:+523331050996" class="btn btn-primary">
-                <i class='bx bx-phone'></i>
+                <i data-lucide="phone"></i>
                 Llamar Ahora
             </a>
             <a href="https://wa.me/523331050996?text=Hola%20Nicolás!%20Vi%20su%20página%20y%20estoy%20interesado%20en%20sus%20servicios%20de%20piedra%20natural%20y%20cocinas%20italianas%20😊" 
                class="btn btn-outline" target="_blank">
-                <i class='bx bxl-whatsapp'></i>
+                <i data-lucide="message-circle"></i>
                 WhatsApp
             </a>
         </div>
@@ -2157,7 +2799,7 @@
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-logo">
-                    <div class="footer-logo-img" style="width: 40px; height: 40px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.8rem;">PF</div>
+                    <div class="footer-logo-img" style="width: 40px; height: 40px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.8rem;">PF</div>
                     <h3>PIETRA FINA</h3>
                 </div>
             </div>
@@ -2165,18 +2807,18 @@
             <div class="footer-right">
                 <div class="footer-contact">
                     <div class="contact-item">
-                        <i class='bx bx-phone'></i>
+                        <i data-lucide="phone"></i>
                         <a href="tel:+523331050996">333 105 0996</a>
                     </div>
                     <div class="contact-item">
-                        <i class='bx bx-map'></i>
+                        <i data-lucide="map-pin"></i>
                         <div class="address-lines">
                             <span>Mariano Otero 5050-A</span>
                             <span>Guadalajara, Jalisco</span>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class='bx bx-envelope'></i>
+                        <i data-lucide="mail"></i>
                         <a href="mailto:info@pietrafina.com">info@pietrafina.com</a>
                     </div>
                 </div>
@@ -2187,6 +2829,99 @@
             <p>&copy; 2025 Pietra Fina. Todos los derechos reservados. | Desarrollado por <a href="https://mvgn.vercel.app" target="_blank" class="mvgn-link">MVGN Labs 2025</a></p>
         </div>
     </footer>
+
+    <!-- Modal de Fichas Técnicas -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="" />
+                <button class="modal-close" id="modalClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-subtitle">
+                    <span id="modalLocation"></span>
+                    <span class="year-badge" id="modalYear"></span>
+                </div>
+                
+                <!-- Sistema de Tabs -->
+                <div class="modal-tabs">
+                    <button class="tab-button active" data-tab="overview">
+                        <i data-lucide="file-text" class="tab-icon"></i> Resumen
+                    </button>
+                    <button class="tab-button" data-tab="specs">
+                        <i data-lucide="settings" class="tab-icon"></i> Especificaciones
+                    </button>
+                </div>
+
+                <!-- Contenido de Tabs -->
+                <div class="tab-content active" id="overview-tab">
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+
+                <div class="tab-content" id="specs-tab">
+                    <div class="modal-specs" id="modalSpecs">
+                        <!-- Las especificaciones se llenarán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Compra -->
+    <div class="purchase-modal" id="purchaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="purchaseTitle"></h2>
+                <button class="modal-close" id="purchaseClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="product-details">
+                    <div class="product-image-large">
+                        <img id="purchaseImage" src="" alt="" />
+                    </div>
+                    <div class="product-info">
+                        <p class="product-description" id="purchaseDescription"></p>
+                        <div class="price-info">
+                            <span class="price-label">Precio por pieza:</span>
+                            <span class="price-value" id="purchasePrice"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quantity-selector">
+                    <label for="quantity">Cantidad:</label>
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+                
+                <div class="total-section">
+                    <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0</span>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-add-cart" onclick="addToCart()">
+                        <i data-lucide="shopping-cart"></i>
+                        Agregar al Carrito
+                    </button>
+                    <button class="btn-whatsapp" onclick="sendWhatsApp()">
+                        <i data-lucide="message-circle"></i>
+                        Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Funcionalidad básica
@@ -2431,6 +3166,420 @@
         } else {
             initParallax();
         }
+
+        // ===== DATOS DE PRODUCTOS =====
+        const productsData = {
+            'lazy-susan': {
+                title: 'Lazy Susan',
+                description: 'Mesa giratoria de piedra natural para facilitar el servicio en la mesa.',
+                price: 2500,
+                image: 'assets/fotos tienda/LAZY SUSAN.png'
+            },
+            'tabla-picar': {
+                title: 'Tablas de Picar',
+                description: 'Tablas de corte en mármol y granito, higiénicas y duraderas.',
+                price: 1800,
+                image: 'assets/fotos tienda/TABLA.png'
+            },
+            'macetero': {
+                title: 'Maceteros de Piedra',
+                description: 'Maceteros elegantes tallados en piedra natural para plantas y decoración.',
+                price: 1500,
+                image: 'assets/fotos tienda/MACETERO.png'
+            },
+            'porta-kleenex': {
+                title: 'Porta Kleenex de Piedra',
+                description: 'Elegantes porta pañuelos tallados en piedra natural.',
+                price: 1200,
+                image: null
+            }
+        };
+
+        // ===== DATOS DE PROYECTOS =====
+        const projectsData = {
+            'kingdom-of-the-sun': {
+                title: 'Kingdom of the Sun by Vidanta',
+                location: 'Nuevo Nayarit',
+                year: '2024',
+                image: 'assets/fotos miniatura lookbook/kingdom of the sun.png',
+                description: 'Proyecto más reciente que representa la culminación de 45 años de experiencia, combinando innovación tecnológica con materiales de la más alta calidad en un desarrollo hotelero de lujo.',
+                specs: {
+                    'Sector': 'Hotelero',
+                    'Estado': 'En Progreso',
+                    'Cliente': 'Grupo Vidanta',
+                    'Tipo': 'Desarrollo Hotelero Premium',
+                    'Año': '2024',
+                    'Ubicación': 'Nuevo Nayarit'
+                }
+            },
+            'barcelo-mismaloya': {
+                title: 'Hotel Barceló, La Joya de Mismaloya',
+                location: 'Mismaloya, Puerto Vallarta',
+                year: '1986',
+                image: 'assets/fotos miniatura lookbook/mismaloya.png',
+                description: 'Nuestro primer gran proyecto hotelero que estableció los estándares de calidad para el sector turístico de lujo en México. Un proyecto emblemático que marcó el inicio de nuestra especialización en el sector hotelero.',
+                specs: {
+                    'Superficie': '12,000 m²',
+                    'Material': 'Mármol Terrazo Blanco',
+                    'Sector': 'Hotelero',
+                    'Cliente': 'Barceló Hotel Group',
+                    'Año': '1986',
+                    'Ubicación': 'Mismaloya, Puerto Vallarta'
+                }
+            },
+            'grand-luxxe-jungle': {
+                title: 'Grand Luxxe Jungle by Vidanta',
+                location: 'Riviera Maya, Quintana Roo',
+                year: '2017',
+                image: 'assets/fotos miniatura lookbook/grandluxxe.png',
+                description: 'Proyecto de lujo que combinó mármol y granito de alta calidad en un entorno natural único, estableciendo nuevos estándares en el sector turístico con materiales premium.',
+                specs: {
+                    'Superficie': '1,500 m²',
+                    'Material': 'Mármol Blanco Thassos, Granito Blanco Dallas',
+                    'Sector': 'Hotelero',
+                    'Cliente': 'Grupo Vidanta',
+                    'Año': '2017',
+                    'Ubicación': 'Riviera Maya, Quintana Roo'
+                }
+            }
+        };
+
+        // ===== FUNCIONALIDAD DEL MODAL =====
+        const projectModal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLocation = document.getElementById('modalLocation');
+        const modalYear = document.getElementById('modalYear');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalSpecs = document.getElementById('modalSpecs');
+
+        // Función para abrir el modal
+        function openProjectModal(projectId) {
+            const project = projectsData[projectId];
+            if (!project) return;
+
+            // Llenar datos del modal
+            modalImage.src = project.image;
+            modalImage.alt = project.title;
+            modalTitle.textContent = project.title;
+            modalLocation.textContent = project.location;
+            modalYear.textContent = project.year;
+            modalDescription.textContent = project.description;
+
+            // Llenar especificaciones
+            modalSpecs.innerHTML = '';
+            Object.entries(project.specs).forEach(([label, value]) => {
+                const specItem = document.createElement('div');
+                specItem.className = 'spec-item';
+                specItem.innerHTML = `
+                    <div class="spec-label">${label}</div>
+                    <div class="spec-value">${value}</div>
+                `;
+                modalSpecs.appendChild(specItem);
+            });
+
+            // Mostrar modal
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Función para cerrar el modal
+        function closeProjectModal() {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners para cerrar modal
+        modalClose.addEventListener('click', closeProjectModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                closeProjectModal();
+            }
+        });
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                closeProjectModal();
+            }
+        });
+
+        // Event listeners para modal de compra
+        document.addEventListener('DOMContentLoaded', () => {
+            const purchaseClose = document.getElementById('purchaseClose');
+            const purchaseModal = document.getElementById('purchaseModal');
+            const quantityInput = document.getElementById('quantity');
+
+            if (purchaseClose) {
+                purchaseClose.addEventListener('click', closePurchaseModal);
+            }
+            
+            if (purchaseModal) {
+                purchaseModal.addEventListener('click', (e) => {
+                    if (e.target === purchaseModal) {
+                        closePurchaseModal();
+                    }
+                });
+            }
+
+            if (quantityInput) {
+                quantityInput.addEventListener('input', updateSubtotal);
+            }
+        });
+
+        // ===== FUNCIONALIDAD DE TABS =====
+        function initTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // Remover clase active de todos los botones y contenidos
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Agregar clase active al botón clickeado y su contenido
+                    button.classList.add('active');
+                    document.getElementById(`${targetTab}-tab`).classList.add('active');
+                });
+            });
+        }
+
+        // ===== FUNCIONALIDAD DE COMPRA =====
+        let currentProduct = null;
+        let cart = [];
+
+        // Funciones globales para el modal de compra
+        window.openPurchaseModal = function(productId) {
+            currentProduct = productsData[productId];
+            if (!currentProduct) {
+                console.error('Producto no encontrado:', productId);
+                return;
+            }
+
+            const modal = document.getElementById('purchaseModal');
+            const title = document.getElementById('purchaseTitle');
+            const description = document.getElementById('purchaseDescription');
+            const price = document.getElementById('purchasePrice');
+            const image = document.getElementById('purchaseImage');
+            const quantity = document.getElementById('quantity');
+
+            if (!modal || !title || !description || !price || !image || !quantity) {
+                console.error('Elementos del modal no encontrados');
+                return;
+            }
+
+            title.textContent = currentProduct.title;
+            description.textContent = currentProduct.description;
+            price.textContent = `$${currentProduct.price.toLocaleString()}`;
+            quantity.value = 1;
+
+            if (currentProduct.image) {
+                image.src = currentProduct.image;
+                image.alt = currentProduct.title;
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+
+            updateSubtotal();
+            modal.classList.add('active');
+            
+            // Reinicializar iconos
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        };
+
+        window.closePurchaseModal = function() {
+            const modal = document.getElementById('purchaseModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        };
+
+        window.changeQuantity = function(delta) {
+            const quantityInput = document.getElementById('quantity');
+            if (!quantityInput) return;
+            
+            let currentValue = parseInt(quantityInput.value) || 1;
+            let newValue = currentValue + delta;
+            
+            if (newValue < 1) newValue = 1;
+            if (newValue > 10) newValue = 10;
+            
+            quantityInput.value = newValue;
+            updateSubtotal();
+        };
+
+        function updateSubtotal() {
+            if (!currentProduct) return;
+            
+            const quantityInput = document.getElementById('quantity');
+            const subtotalElement = document.getElementById('subtotal');
+            
+            if (!quantityInput || !subtotalElement) return;
+            
+            const quantity = parseInt(quantityInput.value) || 1;
+            const subtotal = currentProduct.price * quantity;
+            subtotalElement.textContent = `$${subtotal.toLocaleString()}`;
+        }
+
+        // Función para agregar al carrito
+        window.addToCart = function() {
+            if (!currentProduct) {
+                console.error('No hay producto seleccionado');
+                return;
+            }
+            
+            const quantityInput = document.getElementById('quantity');
+            if (!quantityInput) {
+                console.error('No se encontró el input de cantidad');
+                return;
+            }
+            
+            const quantity = parseInt(quantityInput.value) || 1;
+            
+            // Verificar si el producto ya está en el carrito
+            const existingItem = cart.find(item => item.id === currentProduct.title);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: currentProduct.title,
+                    title: currentProduct.title,
+                    description: currentProduct.description,
+                    price: currentProduct.price,
+                    quantity: quantity,
+                    image: currentProduct.image
+                });
+            }
+            
+            updateCartIndicator();
+            closePurchaseModal();
+            
+            // Mostrar confirmación
+            alert(`¡${currentProduct.title} agregado al carrito!`);
+        };
+
+        // Función para ver el carrito
+        window.viewCart = function() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            
+            let cartMessage = '🛒 *Carrito de Compras - Pietra Fina*\n\n';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                cartMessage += `${index + 1}. *${item.title}*\n`;
+                cartMessage += `   📝 ${item.description}\n`;
+                cartMessage += `   💰 $${item.price.toLocaleString()} c/u\n`;
+                cartMessage += `   🔢 Cantidad: ${item.quantity}\n`;
+                cartMessage += `   💵 Subtotal: $${itemTotal.toLocaleString()}\n\n`;
+            });
+            
+            cartMessage += `💳 *Total: $${total.toLocaleString()}*\n\n`;
+            cartMessage += `¿Podrías darme más información sobre disponibilidad y proceso de compra?\n\n¡Gracias! 😊`;
+            
+            const whatsappUrl = `https://wa.me/523331050996?text=${encodeURIComponent(cartMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        };
+
+        // Función para actualizar el indicador del carrito
+        function updateCartIndicator() {
+            const cartIndicator = document.getElementById('cartIndicator');
+            const cartCount = document.getElementById('cartCount');
+            
+            if (cart.length > 0) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                cartIndicator.style.display = 'flex';
+            } else {
+                cartIndicator.style.display = 'none';
+            }
+        }
+
+        // Función global para WhatsApp (producto individual)
+        window.sendWhatsApp = function() {
+            if (!currentProduct) {
+                console.error('No hay producto seleccionado');
+                return;
+            }
+            
+            const quantityInput = document.getElementById('quantity');
+            if (!quantityInput) {
+                console.error('No se encontró el input de cantidad');
+                return;
+            }
+            
+            const quantity = parseInt(quantityInput.value) || 1;
+            const subtotal = currentProduct.price * quantity;
+            
+            const message = `Hola Nicolás! 👋
+
+Estoy interesado en el siguiente producto de Pietra Fina:
+
+🛍️ *${currentProduct.title}*
+📝 ${currentProduct.description}
+💰 Precio: $${currentProduct.price.toLocaleString()} c/u
+🔢 Cantidad: ${quantity} pieza(s)
+💵 Subtotal: $${subtotal.toLocaleString()}
+
+¿Podrías darme más información sobre disponibilidad y proceso de compra?
+
+¡Gracias! 😊`;
+
+            const whatsappUrl = `https://wa.me/523331050996?text=${encodeURIComponent(message)}`;
+            console.log('Abriendo WhatsApp:', whatsappUrl);
+            window.open(whatsappUrl, '_blank');
+        };
+
+        // Event listeners para las tarjetas de proyectos
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar iconos de Lucide
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                
+                // Forzar iconos blancos en la sección quienes somos
+                setTimeout(() => {
+                    const whiteIcons = document.querySelectorAll('.white-icon svg');
+                    whiteIcons.forEach(icon => {
+                        icon.style.color = 'white';
+                        icon.style.fill = 'white';
+                        icon.style.stroke = 'white';
+                    });
+                }, 100);
+            }
+
+            const projectCards = document.querySelectorAll('.proyecto-card');
+            projectCards.forEach((card, index) => {
+                const projectIds = ['kingdom-of-the-sun', 'barcelo-mismaloya', 'grand-luxxe-jungle'];
+                const projectId = projectIds[index];
+                
+                if (projectId) {
+                    card.addEventListener('click', () => {
+                        openProjectModal(projectId);
+                        // Inicializar tabs después de abrir el modal
+                        setTimeout(() => {
+                            initTabs();
+                            // Reinicializar iconos de Lucide para los nuevos elementos
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }, 100);
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
