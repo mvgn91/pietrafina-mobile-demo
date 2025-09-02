@@ -6,6 +6,10 @@
     <title>Pietra Fina - Demo Ejecutivo | Cocinas Italianas & Piedra Natural</title>
     <!-- Logo fix: Updated to logo-pietra-fina.png -->
     <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
     <style>
         /* ===== MOBILE FIRST DEMO ===== */
@@ -296,13 +300,14 @@
             overflow: hidden;
         }
 
-        /* Desactivar scroll automático - Enfoque agresivo */
+        /* Desactivar scroll automático - Enfoque ultra agresivo */
         html {
             scroll-behavior: auto !important;
             scroll-snap-type: none !important;
             scroll-padding: 0 !important;
             overscroll-behavior: none !important;
             -webkit-overflow-scrolling: auto !important;
+            scroll-snap-stop: normal !important;
         }
 
         body {
@@ -313,18 +318,29 @@
             -webkit-overflow-scrolling: auto !important;
             overscroll-behavior: none !important;
             touch-action: pan-y !important;
+            scroll-snap-stop: normal !important;
         }
 
         * {
             scroll-snap-align: none !important;
             scroll-snap-stop: normal !important;
             overscroll-behavior: none !important;
+            scroll-behavior: auto !important;
         }
 
         /* Desactivar cualquier comportamiento de scroll automático en secciones */
         .section {
             scroll-margin: 0 !important;
             scroll-padding: 0 !important;
+            overscroll-behavior: none !important;
+            scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
+        }
+
+        /* Forzar comportamiento de scroll natural */
+        .hero, .cocinas-section, .ventaja-section, .proyectos-section, .tienda-section, .lotes-section, .quienes-section, .cta-section {
+            scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
             overscroll-behavior: none !important;
         }
 
@@ -3128,9 +3144,47 @@
             });
         });
 
-        // ===== SCROLL NATURAL - SIN ANIMACIONES =====
-        // Desactivado para permitir scroll completamente natural
-        // Las secciones ahora son siempre visibles sin animaciones
+        // ===== CONTROL DE SCROLL HACIA ABAJO =====
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            let isScrollingDown = false;
+            let scrollTimeout;
+            
+            // Interceptar scroll hacia abajo
+            window.addEventListener('scroll', function(e) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                isScrollingDown = scrollTop > lastScrollTop;
+                lastScrollTop = scrollTop;
+                
+                // Si está scrolleando hacia abajo, prevenir comportamiento automático
+                if (isScrollingDown) {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        // Forzar scroll natural
+                        window.scrollTo({
+                            top: scrollTop,
+                            behavior: 'auto'
+                        });
+                    }, 10);
+                }
+            }, { passive: false });
+            
+            // Prevenir touch events que puedan causar scroll automático
+            let touchStartY = 0;
+            document.addEventListener('touchstart', function(e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            document.addEventListener('touchmove', function(e) {
+                const touchY = e.touches[0].clientY;
+                const touchDiff = touchStartY - touchY;
+                
+                // Si está scrolleando hacia abajo, prevenir comportamiento automático
+                if (touchDiff < 0) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
 
         // ===== DATOS DE PRODUCTOS =====
         const productsData = {
