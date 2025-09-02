@@ -10,6 +10,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="mobile-web-app-status-bar-style" content="default">
     
     <style>
         /* ===== MOBILE FIRST DEMO ===== */
@@ -342,6 +344,26 @@
             scroll-snap-align: none !important;
             scroll-snap-stop: normal !important;
             overscroll-behavior: none !important;
+        }
+
+        /* Ajustes específicos para Android */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            html, body {
+                -webkit-overflow-scrolling: touch !important;
+                scroll-behavior: auto !important;
+                scroll-snap-type: none !important;
+            }
+            
+            .section {
+                -webkit-transform: translateZ(0) !important;
+                transform: translateZ(0) !important;
+            }
+        }
+
+        /* Prevenir momentum scrolling en Android */
+        body {
+            -webkit-overflow-scrolling: auto !important;
+            overflow-scrolling: auto !important;
         }
 
         /* Scroll Natural - Sin Animaciones */
@@ -3144,11 +3166,17 @@
             });
         });
 
-        // ===== CONTROL DE SCROLL HACIA ABAJO =====
+        // ===== CONTROL DE SCROLL HACIA ABAJO - OPTIMIZADO PARA ANDROID =====
         document.addEventListener('DOMContentLoaded', function() {
+            // Detectar Android
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isChrome = /Chrome/i.test(navigator.userAgent);
+            
             let lastScrollTop = 0;
             let isScrollingDown = false;
             let scrollTimeout;
+            let touchStartY = 0;
+            let touchStartTime = 0;
             
             // Interceptar scroll hacia abajo
             window.addEventListener('scroll', function(e) {
@@ -3169,21 +3197,46 @@
                 }
             }, { passive: false });
             
-            // Prevenir touch events que puedan causar scroll automático
-            let touchStartY = 0;
-            document.addEventListener('touchstart', function(e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-            
-            document.addEventListener('touchmove', function(e) {
-                const touchY = e.touches[0].clientY;
-                const touchDiff = touchStartY - touchY;
+            // Control de touch específico para Android
+            if (isAndroid) {
+                document.addEventListener('touchstart', function(e) {
+                    touchStartY = e.touches[0].clientY;
+                    touchStartTime = Date.now();
+                }, { passive: true });
                 
-                // Si está scrolleando hacia abajo, prevenir comportamiento automático
-                if (touchDiff < 0) {
+                document.addEventListener('touchmove', function(e) {
+                    const touchY = e.touches[0].clientY;
+                    const touchDiff = touchStartY - touchY;
+                    const touchTime = Date.now() - touchStartTime;
+                    
+                    // Si está scrolleando hacia abajo y es un movimiento rápido, prevenir
+                    if (touchDiff < 0 && touchTime < 200) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }, { passive: false });
+                
+                // Prevenir scroll automático en Android Chrome
+                document.addEventListener('gesturestart', function(e) {
                     e.preventDefault();
-                }
-            }, { passive: false });
+                }, { passive: false });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+            }
+            
+            // Forzar scroll natural en Android
+            if (isAndroid && isChrome) {
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+                
+                // Prevenir cualquier comportamiento de scroll automático
+                window.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    window.scrollBy(0, e.deltaY);
+                }, { passive: false });
+            }
         });
 
         // ===== DATOS DE PRODUCTOS =====
