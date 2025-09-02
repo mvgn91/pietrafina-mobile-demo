@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Pietra Fina - Demo Ejecutivo | Cocinas Italianas & Piedra Natural</title>
     <!-- Logo fix: Updated to logo-pietra-fina.png -->
     <meta name="theme-color" content="#ffffff">
@@ -297,11 +297,24 @@
             overflow: hidden;
         }
 
+        /* Desactivar scroll automático */
+        html {
+            scroll-behavior: auto !important;
+            scroll-snap-type: none !important;
+        }
+
+        body {
+            scroll-behavior: auto !important;
+            scroll-snap-type: none !important;
+            overflow-x: hidden;
+        }
+
         /* Scroll Animations */
         .section {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
+            scroll-snap-align: none !important;
         }
 
         .section.visible {
@@ -3120,9 +3133,9 @@
                     const sectionTop = rect.top;
                     const sectionBottom = rect.bottom;
                     
-                    // Calcular si la sección está en el viewport
-                    const isInViewport = sectionTop < windowHeight * 0.8 && sectionBottom > 0;
-                    const isAboveViewport = sectionBottom < 0;
+                    // Calcular si la sección está en el viewport (menos agresivo)
+                    const isInViewport = sectionTop < windowHeight * 0.6 && sectionBottom > windowHeight * 0.2;
+                    const isAboveViewport = sectionBottom < -100; // Solo ocultar si está muy arriba
                     
                     // Remover clases anteriores
                     section.classList.remove('visible', 'hidden');
