@@ -301,30 +301,28 @@
         html {
             scroll-behavior: auto !important;
             scroll-snap-type: none !important;
+            scroll-padding: 0 !important;
         }
 
         body {
             scroll-behavior: auto !important;
             scroll-snap-type: none !important;
+            scroll-padding: 0 !important;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* Scroll Animations */
-        .section {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
+        * {
             scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
         }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section.hidden {
-            opacity: 0;
-            transform: translateY(-50px);
+        /* Scroll Natural - Sin Animaciones */
+        .section {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+            scroll-snap-align: none !important;
         }
 
         /* Hero section siempre visible */
@@ -3119,66 +3117,9 @@
             });
         });
 
-        // ===== SCROLL ANIMATIONS =====
-        function initScrollAnimations() {
-            const sections = document.querySelectorAll('.section');
-            
-            if (sections.length === 0) return;
-
-            function updateScrollAnimations() {
-                const windowHeight = window.innerHeight;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionTop = rect.top;
-                    const sectionBottom = rect.bottom;
-                    
-                    // Calcular si la sección está en el viewport (menos agresivo)
-                    const isInViewport = sectionTop < windowHeight * 0.6 && sectionBottom > windowHeight * 0.2;
-                    const isAboveViewport = sectionBottom < -100; // Solo ocultar si está muy arriba
-                    
-                    // Remover clases anteriores
-                    section.classList.remove('visible', 'hidden');
-                    
-                    if (isInViewport) {
-                        // Sección visible - aplicar animación de entrada
-                        section.classList.add('visible');
-                    } else if (isAboveViewport) {
-                        // Sección arriba del viewport - aplicar animación de salida
-                        section.classList.add('hidden');
-                    }
-                    // Si está abajo del viewport, mantener opacity: 0 (estado inicial)
-                });
-            }
-
-            // Optimización con requestAnimationFrame
-            let ticking = false;
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateScrollAnimations);
-                    ticking = true;
-                }
-            }
-
-            function handleScroll() {
-                ticking = false;
-                requestTick();
-            }
-
-            // Event listeners
-            window.addEventListener('scroll', handleScroll, { passive: true });
-            window.addEventListener('resize', updateScrollAnimations);
-            
-            // Inicializar
-            updateScrollAnimations();
-        }
-
-        // Inicializar scroll animations cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initScrollAnimations);
-        } else {
-            initScrollAnimations();
-        }
+        // ===== SCROLL NATURAL - SIN ANIMACIONES =====
+        // Desactivado para permitir scroll completamente natural
+        // Las secciones ahora son siempre visibles sin animaciones
 
         // ===== DATOS DE PRODUCTOS =====
         const productsData = {
