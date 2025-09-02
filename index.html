@@ -297,28 +297,27 @@
             overflow: hidden;
         }
 
-        /* Efecto Parallax */
-        .parallax-section {
-            transform: translateZ(0);
-            will-change: transform;
+        /* Scroll Animations */
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
 
-        .parallax-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transform: translateZ(-1px) scale(1.1);
-            will-change: transform;
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .parallax-content {
-            position: relative;
-            z-index: 2;
+        .section.hidden {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        /* Hero section siempre visible */
+        .hero {
+            opacity: 1 !important;
+            transform: none !important;
         }
 
         .section-title {
@@ -1391,14 +1390,14 @@
              box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
          }
 
-                 .producto-image {
+         .producto-image {
             height: 200px;
             background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 2rem;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: var(--secondary);
+             font-size: 2rem;
             overflow: hidden;
             border-radius: var(--radius-md);
             position: relative;
@@ -1414,20 +1413,20 @@
         
         .producto-card:hover .producto-image img {
             transform: scale(1.02);
-        }
+         }
 
          .producto-info {
              padding: var(--space-md);
          }
 
-                 .producto-title {
-            font-family: var(--font-display);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: var(--space-sm);
+         .producto-title {
+             font-family: var(--font-display);
+             font-size: var(--text-lg);
+             font-weight: 700;
+             color: var(--gray-900);
+             margin-bottom: var(--space-sm);
             text-align: center;
-        }
+         }
 
          .producto-description {
              font-size: 0.875rem;
@@ -1436,11 +1435,11 @@
              line-height: 1.5;
          }
 
-                 .producto-precio {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
+         .producto-precio {
+             font-size: 1rem;
+             font-weight: 700;
+             color: var(--secondary);
+         }
         
         .btn-comprar {
             width: 100%;
@@ -1643,11 +1642,11 @@
              background: rgba(255, 255, 255, 0.15);
          }
 
-                 .visual-card i {
-            font-size: 2.5rem;
+         .visual-card i {
+             font-size: 2.5rem;
             color: var(--white) !important;
-            margin-bottom: var(--space-md);
-        }
+             margin-bottom: var(--space-md);
+         }
         
         .visual-card i svg {
             color: var(--white) !important;
@@ -2362,8 +2361,8 @@
             
             .quantity-controls {
                 justify-content: center;
-            }
-        }
+             }
+         }
     </style>
     
     <!-- Fonts -->
@@ -2371,7 +2370,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Helvetica:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
+         <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
  </head>
  <body>
@@ -2384,9 +2383,9 @@
          </div>
          <div class="menu-overlay" id="menuOverlay">
              <div class="menu-content">
-                                 <button class="menu-close" id="menuClose">
+                 <button class="menu-close" id="menuClose">
                     <i data-lucide="x"></i>
-                </button>
+                 </button>
                  <div class="menu-header">
                      <div class="menu-logo" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; margin: 0 auto;">PF</div>
                      <h3>PIETRA FINA</h3>
@@ -2405,10 +2404,10 @@
          </div>
      </nav>
 
-         <!-- Botón Scroll to Top -->
-    <button class="scroll-to-top" id="scrollToTop">
+     <!-- Botón Scroll to Top -->
+     <button class="scroll-to-top" id="scrollToTop">
         <i data-lucide="chevron-up"></i>
-    </button>
+     </button>
 
 
          <!-- Hero Section -->
@@ -2516,9 +2515,8 @@
     </section>
 
     <!-- Cocinas Italianas Section -->
-    <section class="section cocinas-section parallax-section" id="cocinas">
-        <div class="parallax-bg"></div>
-        <div class="parallax-content">
+    <section class="section cocinas-section" id="cocinas">
+        <div class="section-content">
             <h2 class="section-title">Cocinas Integrales Italianas</h2>
             <p class="section-subtitle">Importación directa y tiempos de entrega excepcionales</p>
         
@@ -2560,9 +2558,8 @@
     </section>
 
          <!-- Ventaja Competitiva Section -->
-     <section class="section ventaja-section parallax-section" id="ventaja">
-         <div class="parallax-bg"></div>
-         <div class="parallax-content">
+    <section class="section ventaja-section" id="ventaja">
+        <div class="section-content">
          <div class="ventaja-content">
              <div class="ventaja-card">
                  <div class="ventaja-icon">
@@ -2581,9 +2578,8 @@
      </section>
 
     <!-- Proyectos Emblemáticos Section -->
-    <section class="section proyectos-section parallax-section" id="proyectos">
-        <div class="parallax-bg"></div>
-        <div class="parallax-content">
+    <section class="section proyectos-section" id="proyectos">
+        <div class="section-content">
         <h2 class="section-title">Proyectos Emblemáticos</h2>
         <p class="section-subtitle">Algunos de nuestros 18 proyectos emblemáticos</p>
         
@@ -2633,9 +2629,8 @@
      </section>
 
      <!-- Tienda Section -->
-     <section class="section tienda-section parallax-section" id="tienda">
-         <div class="parallax-bg"></div>
-         <div class="parallax-content">
+    <section class="section tienda-section" id="tienda">
+        <div class="section-content">
                  <div class="tienda-header">
             <h2 class="section-title">Tienda</h2>
             <p class="section-subtitle">Productos de piedra natural y accesorios para tu hogar</p>
@@ -2711,9 +2706,8 @@
      </section>
 
      <!-- Lotes Premium Section -->
-     <section class="section lotes-section parallax-section" id="lotes">
-         <div class="parallax-bg"></div>
-         <div class="parallax-content">
+    <section class="section lotes-section" id="lotes">
+        <div class="section-content">
          <h2 class="section-title">Lotes Premium de Recubrimientos</h2>
          <p class="section-subtitle">Materiales de primera calidad para proyectos exclusivos</p>
          
@@ -2772,9 +2766,8 @@
 
 
      <!-- CTA Section -->
-    <section class="section cta-section parallax-section" id="contacto">
-        <div class="parallax-bg"></div>
-        <div class="parallax-content">
+    <section class="section cta-section" id="contacto">
+        <div class="section-content">
         <h2 class="cta-title">¿Listo para Transformar tu Espacio?</h2>
         <p class="cta-description">
             Contáctanos y descubre cómo podemos hacer realidad tu proyecto con la elegancia de la piedra natural y la eficiencia de nuestros tiempos de entrega.
@@ -3113,28 +3106,35 @@
             });
         });
 
-        // Efecto Parallax
-        function initParallax() {
-            const parallaxSections = document.querySelectorAll('.parallax-section');
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const sections = document.querySelectorAll('.section');
             
-            if (parallaxSections.length === 0) return;
+            if (sections.length === 0) return;
 
-            function updateParallax() {
-                const scrollTop = window.pageYOffset;
+            function updateScrollAnimations() {
+                const windowHeight = window.innerHeight;
                 
-                parallaxSections.forEach(section => {
+                sections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    const speed = 0.5; // Velocidad del parallax
+                    const sectionTop = rect.top;
+                    const sectionBottom = rect.bottom;
                     
-                    // Solo aplicar parallax si la sección está visible
-                    if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
-                        const yPos = -(scrollTop * speed);
-                        const parallaxBg = section.querySelector('.parallax-bg');
-                        
-                        if (parallaxBg) {
-                            parallaxBg.style.transform = `translate3d(0, ${yPos}px, 0) scale(1.1)`;
-                        }
+                    // Calcular si la sección está en el viewport
+                    const isInViewport = sectionTop < windowHeight * 0.8 && sectionBottom > 0;
+                    const isAboveViewport = sectionBottom < 0;
+                    
+                    // Remover clases anteriores
+                    section.classList.remove('visible', 'hidden');
+                    
+                    if (isInViewport) {
+                        // Sección visible - aplicar animación de entrada
+                        section.classList.add('visible');
+                    } else if (isAboveViewport) {
+                        // Sección arriba del viewport - aplicar animación de salida
+                        section.classList.add('hidden');
                     }
+                    // Si está abajo del viewport, mantener opacity: 0 (estado inicial)
                 });
             }
 
@@ -3142,7 +3142,7 @@
             let ticking = false;
             function requestTick() {
                 if (!ticking) {
-                    requestAnimationFrame(updateParallax);
+                    requestAnimationFrame(updateScrollAnimations);
                     ticking = true;
                 }
             }
@@ -3154,17 +3154,17 @@
 
             // Event listeners
             window.addEventListener('scroll', handleScroll, { passive: true });
-            window.addEventListener('resize', updateParallax);
+            window.addEventListener('resize', updateScrollAnimations);
             
             // Inicializar
-            updateParallax();
+            updateScrollAnimations();
         }
 
-        // Inicializar parallax cuando el DOM esté listo
+        // Inicializar scroll animations cuando el DOM esté listo
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initParallax);
+            document.addEventListener('DOMContentLoaded', initScrollAnimations);
         } else {
-            initParallax();
+            initScrollAnimations();
         }
 
         // ===== DATOS DE PRODUCTOS =====
