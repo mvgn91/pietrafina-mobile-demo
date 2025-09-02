@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Pietra Fina - Demo Ejecutivo | Cocinas Italianas & Piedra Natural</title>
     <!-- Logo fix: Updated to logo-pietra-fina.png -->
     <meta name="theme-color" content="#ffffff">
@@ -85,8 +85,7 @@
         /* ===== HERO SECTION ===== */
         .hero {
             position: relative;
-            min-height: 100vh;
-            min-height: 100dvh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -297,11 +296,13 @@
             overflow: hidden;
         }
 
-        /* Desactivar scroll automático */
+        /* Desactivar scroll automático - Enfoque agresivo */
         html {
             scroll-behavior: auto !important;
             scroll-snap-type: none !important;
             scroll-padding: 0 !important;
+            overscroll-behavior: none !important;
+            -webkit-overflow-scrolling: auto !important;
         }
 
         body {
@@ -309,12 +310,22 @@
             scroll-snap-type: none !important;
             scroll-padding: 0 !important;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto !important;
+            overscroll-behavior: none !important;
+            touch-action: pan-y !important;
         }
 
         * {
             scroll-snap-align: none !important;
             scroll-snap-stop: normal !important;
+            overscroll-behavior: none !important;
+        }
+
+        /* Desactivar cualquier comportamiento de scroll automático en secciones */
+        .section {
+            scroll-margin: 0 !important;
+            scroll-padding: 0 !important;
+            overscroll-behavior: none !important;
         }
 
         /* Scroll Natural - Sin Animaciones */
@@ -1478,7 +1489,7 @@
         .btn-comprar i {
             width: 16px;
             height: 16px;
-        }
+         }
 
          /* Lotes Premium Section */
          .lotes-section {
@@ -1673,7 +1684,7 @@
             color: var(--white) !important;
             fill: var(--white) !important;
             stroke: var(--white) !important;
-        }
+         }
 
          .visual-card h4 {
              font-family: var(--font-display);
@@ -3335,7 +3346,7 @@
                 image.src = currentProduct.image;
                 image.alt = currentProduct.title;
                 image.style.display = 'block';
-            } else {
+        } else {
                 image.style.display = 'none';
             }
 
