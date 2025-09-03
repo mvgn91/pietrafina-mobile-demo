@@ -340,7 +340,7 @@
         }
 
         /* Forzar comportamiento de scroll natural */
-        .hero, .cocinas-section, .ventaja-section, .proyectos-section, .tienda-section, .lotes-section, .quienes-section, .cta-section {
+        .hero, .servicios-section, .cocinas-section, .ventaja-section, .proyectos-section, .tienda-section, .lotes-section, .quienes-section, .cta-section {
             scroll-snap-align: none !important;
             scroll-snap-stop: normal !important;
             overscroll-behavior: none !important;
@@ -1736,6 +1736,508 @@
              color: rgba(255, 255, 255, 0.8);
              margin: 0;
          }
+
+         /* ===== SERVICIOS SECTION - ENHANCED DESIGN ===== */
+         .servicios-section {
+             position: relative;
+             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+             overflow: hidden;
+             min-height: 100vh;
+         }
+
+         .servicios-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: 
+                 radial-gradient(circle at 30% 20%, rgba(220, 38, 38, 0.03) 0%, transparent 60%),
+                 radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
+             animation: backgroundShift 60s ease-in-out infinite;
+         }
+
+         .servicios-header {
+             text-align: center;
+             margin-bottom: var(--space-xl);
+             position: relative;
+             z-index: 2;
+         }
+
+         /* Desktop Layout - Circular Design */
+         .servicios-desktop {
+             display: block;
+             position: relative;
+             z-index: 2;
+         }
+
+         .servicios-mobile {
+             display: none;
+         }
+
+         .servicios-circular-container {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 600px;
+             position: relative;
+             margin-bottom: var(--space-xl);
+         }
+
+         .servicios-center {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             z-index: 3;
+         }
+
+         .center-logo {
+             text-align: center;
+             background: rgba(255, 255, 255, 0.95);
+             backdrop-filter: blur(20px);
+             border-radius: 50%;
+             width: 200px;
+             height: 200px;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 
+                 0 20px 60px rgba(0, 0, 0, 0.1),
+                 0 0 0 1px rgba(255, 255, 255, 0.8);
+             border: 2px solid rgba(0, 0, 0, 0.1);
+             position: relative;
+         }
+
+         .logo-circle {
+             width: 60px;
+             height: 60px;
+             background: #dc2626;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin-bottom: var(--space-md);
+             box-shadow: 
+                 0 8px 25px rgba(220, 38, 38, 0.3),
+                 0 0 0 2px rgba(255, 255, 255, 0.8);
+         }
+
+         .logo-circle i {
+             color: var(--white);
+             font-size: 1.5rem;
+         }
+
+         .center-logo h3 {
+             font-family: var(--font-display);
+             font-size: var(--text-lg);
+             font-weight: 700;
+             color: #1e293b;
+             margin: 0 0 var(--space-xs) 0;
+         }
+
+         .center-logo p {
+             font-size: var(--text-sm);
+             color: #64748b;
+             margin: 0;
+         }
+
+         .servicios-orbit {
+             position: relative;
+             width: 500px;
+             height: 500px;
+             border: 2px dashed rgba(0, 0, 0, 0.1);
+             border-radius: 50%;
+             animation: rotate 60s linear infinite;
+         }
+
+         @keyframes rotate {
+             from { transform: rotate(0deg); }
+             to { transform: rotate(360deg); }
+         }
+
+         .servicio-item {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(-1 * var(--angle)));
+             cursor: pointer;
+             transition: var(--transition);
+         }
+
+         .servicio-item:hover {
+             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-270px) rotate(calc(-1 * var(--angle))) scale(1.1);
+         }
+
+         .servicio-item.active {
+             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-270px) rotate(calc(-1 * var(--angle))) scale(1.15);
+         }
+
+         .servicio-item .servicio-card {
+             background: rgba(255, 255, 255, 0.95);
+             backdrop-filter: blur(20px);
+             border-radius: 20px;
+             padding: var(--space-lg);
+             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+             border: 2px solid rgba(0, 0, 0, 0.1);
+             text-align: center;
+             min-width: 120px;
+             transition: var(--transition);
+         }
+
+         .servicio-item:hover .servicio-card,
+         .servicio-item.active .servicio-card {
+             border-color: #dc2626;
+             box-shadow: 0 15px 50px rgba(220, 38, 38, 0.2);
+             transform: translateY(-5px);
+         }
+
+         .servicio-item .servicio-icon {
+             width: 50px;
+             height: 50px;
+             background: #1e293b;
+             border-radius: 8px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin: 0 auto var(--space-sm) auto;
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+             transition: var(--transition);
+         }
+
+         .servicio-item:hover .servicio-icon,
+         .servicio-item.active .servicio-icon {
+             transform: scale(1.1);
+         }
+
+         .servicio-item .servicio-icon i {
+             color: #ffffff !important;
+             font-size: 1.25rem;
+         }
+
+         .servicio-item .servicio-icon i svg {
+             color: #ffffff !important;
+             fill: #ffffff !important;
+             stroke: #ffffff !important;
+         }
+
+         /* Solo iconos de categorías en blanco */
+         .servicio-icon i,
+         .accordion-icon i {
+             color: #ffffff !important;
+         }
+
+         .servicio-icon i svg,
+         .accordion-icon i svg {
+             color: #ffffff !important;
+             fill: #ffffff !important;
+             stroke: #ffffff !important;
+         }
+
+         /* Forzar SVG de escaleras específicamente */
+         .servicio-icon svg,
+         .accordion-icon svg {
+             color: #ffffff !important;
+             fill: none !important;
+             stroke: #ffffff !important;
+         }
+
+         .servicio-item h4 {
+             font-family: var(--font-display);
+             font-size: var(--text-sm);
+             font-weight: 600;
+             color: #1e293b;
+             margin: 0;
+         }
+
+         /* Content Panel */
+         .servicios-content-panel {
+             background: rgba(255, 255, 255, 0.95);
+             backdrop-filter: blur(20px);
+             border-radius: 24px;
+             padding: var(--space-xl);
+             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+             border: 2px solid rgba(0, 0, 0, 0.1);
+             min-height: 400px;
+         }
+
+         .content-item {
+             display: none;
+             animation: fadeInUp 0.5s ease-out;
+         }
+
+         .content-item.active {
+             display: block;
+         }
+
+         @keyframes fadeInUp {
+             from {
+                 opacity: 0;
+                 transform: translateY(20px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+
+         .content-header {
+             text-align: center;
+             margin-bottom: var(--space-xl);
+             padding-bottom: var(--space-lg);
+             border-bottom: 2px solid var(--gray-200);
+         }
+
+         .content-header h3 {
+             font-family: var(--font-display);
+             font-size: var(--text-2xl);
+             font-weight: 700;
+             color: #1e293b;
+             margin-bottom: var(--space-sm);
+         }
+
+         .content-header p {
+             font-size: var(--text-lg);
+             color: #64748b;
+             margin: 0;
+         }
+
+         .content-grid {
+             display: grid;
+             grid-template-columns: repeat(2, 1fr);
+             gap: var(--space-xl);
+         }
+
+         .content-column h4 {
+             font-family: var(--font-display);
+             font-size: var(--text-xl);
+             font-weight: 600;
+             color: var(--black);
+             margin-bottom: var(--space-lg);
+             display: flex;
+             align-items: center;
+             gap: var(--space-sm);
+         }
+
+         .content-column ul {
+             list-style: none;
+             padding: 0;
+             margin: 0;
+         }
+
+         .content-column li {
+             font-size: var(--text-base);
+             color: #475569;
+             margin-bottom: var(--space-md);
+             display: flex;
+             align-items: center;
+             gap: var(--space-sm);
+             padding: var(--space-sm);
+             background: rgba(220, 38, 38, 0.05);
+             border-radius: 12px;
+             transition: var(--transition);
+         }
+
+         .content-column li:hover {
+             background: rgba(220, 38, 38, 0.1);
+             transform: translateX(5px);
+         }
+
+         .content-column li i {
+             color: #dc2626 !important;
+             font-size: 1.25rem;
+             min-width: 20px;
+         }
+
+         /* Iconos stairs en contenido en negro */
+         .content-column li .lucide-stairs {
+             color: #000000 !important;
+             fill: none !important;
+             stroke: #000000 !important;
+         }
+
+         .content-column p {
+             font-size: var(--text-base);
+             color: var(--gray-600);
+             line-height: 1.6;
+             margin: 0;
+             padding: var(--space-md);
+             background: rgba(220, 38, 38, 0.05);
+             border-radius: 12px;
+         }
+
+         /* Mobile Layout - Accordion */
+         .servicios-mobile {
+             display: none;
+         }
+
+         .servicios-accordion {
+             position: relative;
+             z-index: 2;
+         }
+
+         .accordion-item {
+             background: rgba(255, 255, 255, 0.95);
+             backdrop-filter: blur(20px);
+             border-radius: 20px;
+             margin-bottom: var(--space-md);
+             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+             border: 2px solid rgba(0, 0, 0, 0.1);
+             overflow: hidden;
+             transition: var(--transition);
+         }
+
+         .accordion-item.active {
+             box-shadow: 0 15px 50px rgba(220, 38, 38, 0.15);
+             border-color: #dc2626;
+         }
+
+         .accordion-header {
+             display: flex;
+             align-items: center;
+             padding: var(--space-lg);
+             cursor: pointer;
+             transition: var(--transition);
+         }
+
+         .accordion-header:hover {
+             background: rgba(220, 38, 38, 0.05);
+         }
+
+         .accordion-icon {
+             width: 50px;
+             height: 50px;
+             background: #1e293b;
+             border-radius: 8px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin-right: var(--space-md);
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+             transition: var(--transition);
+         }
+
+         .accordion-item.active .accordion-icon {
+             transform: scale(1.05);
+         }
+
+         .accordion-icon i {
+             color: #ffffff !important;
+             font-size: 1.25rem;
+         }
+
+         .accordion-icon i svg {
+             color: #ffffff !important;
+             fill: #ffffff !important;
+             stroke: #ffffff !important;
+         }
+
+         .accordion-title {
+             flex: 1;
+         }
+
+         .accordion-title h4 {
+             font-family: var(--font-display);
+             font-size: var(--text-lg);
+             font-weight: 600;
+             color: #1e293b;
+             margin: 0 0 var(--space-xs) 0;
+         }
+
+         .accordion-title p {
+             font-size: var(--text-sm);
+             color: #64748b;
+             margin: 0;
+         }
+
+         .accordion-arrow {
+             transition: var(--transition);
+         }
+
+         .accordion-item.active .accordion-arrow {
+             transform: rotate(180deg);
+         }
+
+         .accordion-arrow i {
+             color: var(--secondary);
+             font-size: 1.25rem;
+         }
+
+         .accordion-content {
+             max-height: 0;
+             overflow: hidden;
+             transition: max-height 0.3s ease-out;
+         }
+
+         .accordion-item.active .accordion-content {
+             max-height: 1000px;
+         }
+
+         .accordion-content .content-grid {
+             padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+             grid-template-columns: 1fr;
+             gap: var(--space-lg);
+         }
+
+         .accordion-content .content-column h5 {
+             font-family: var(--font-display);
+             font-size: var(--text-lg);
+             font-weight: 600;
+             color: var(--black);
+             margin-bottom: var(--space-md);
+         }
+
+         .accordion-content .content-column li {
+             font-size: var(--text-sm);
+             padding: var(--space-sm);
+         }
+
+         /* Servicios Responsive */
+         @media (max-width: 768px) {
+             .servicios-desktop {
+                 display: none;
+             }
+
+             .servicios-mobile {
+                 display: block;
+             }
+
+             .servicios-section {
+                 min-height: auto;
+             }
+
+             .accordion-content .content-grid {
+                 grid-template-columns: 1fr;
+                 gap: var(--space-md);
+             }
+         }
+
+         @media (max-width: 480px) {
+             .accordion-header {
+                 padding: var(--space-md);
+             }
+
+             .accordion-icon {
+                 width: 40px;
+                 height: 40px;
+                 margin-right: var(--space-sm);
+             }
+
+             .accordion-icon i {
+                 font-size: 1rem;
+             }
+
+             .accordion-title h4 {
+                 font-size: var(--text-base);
+             }
+
+             .accordion-title p {
+                 font-size: var(--text-xs);
+             }
+         }
+
          /* Quiénes Somos Responsive */
          @media (max-width: 768px) {
              .quienes-content {
@@ -2431,6 +2933,14 @@
     
          <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/@lucide/lab@latest/dist/umd/lucide-lab.js"></script>
+    <script>
+        // Integrar iconos de lab con Lucide principal
+        if (typeof lucide !== 'undefined' && typeof window.lucideLab !== 'undefined') {
+            // Agregar iconos de lab al objeto principal de Lucide
+            Object.assign(lucide.icons, window.lucideLab);
+        }
+    </script>
  </head>
  <body>
      <!-- Menú Hamburguesa -->
@@ -2454,7 +2964,7 @@
                      <li><a href="#quienes" class="menu-link">Quiénes Somos</a></li>
                      <li><a href="#cocinas" class="menu-link">Cocinas Italianas</a></li>
                      <li><a href="#ventaja" class="menu-link">Ventaja Competitiva</a></li>
-                     <li><a href="#proyectos" class="menu-link">Proyectos</a></li>
+                     <li><a href="#servicios" class="menu-link">Servicios</a></li>
                      <li><a href="#tienda" class="menu-link">Tienda</a></li>
                      <li><a href="#lotes" class="menu-link">Lotes Premium</a></li>
                      <li><a href="#contacto" class="menu-link">Contacto</a></li>
@@ -2508,9 +3018,9 @@
             
             <!-- Botones -->
             <div class="hero-actions">
-                <a href="#proyectos" class="btn btn-primary">
-                    <i data-lucide="folder-open"></i>
-                    Ver Proyectos
+                <a href="#servicios" class="btn btn-primary">
+                    <i data-lucide="settings"></i>
+                    Ver Servicios
                 </a>
                 <a href="https://wa.me/523331050996?text=Hola%20Nicolás!%20Vi%20su%20página%20y%20estoy%20interesado%20en%20sus%20servicios%20de%20piedra%20natural%20y%20cocinas%20italianas%20😊" class="btn btn-outline" target="_blank">
                     <i data-lucide="message-circle"></i>
@@ -2567,6 +3077,479 @@
                         <i data-lucide="gem" class="white-icon"></i>
                         <h4>Calidad</h4>
                         <p>Materiales de la más alta gama</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="section servicios-section" id="servicios">
+        <div class="section-content">
+            <div class="servicios-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Transformamos espacios con la elegancia de la piedra natural</p>
+            </div>
+            
+            <!-- Desktop Layout - Circular Interactive Design -->
+            <div class="servicios-desktop">
+                <div class="servicios-circular-container">
+                    <div class="servicios-center">
+                        <div class="center-logo">
+                            <div class="logo-circle">
+                                <i data-lucide="gem"></i>
+                            </div>
+                            <h3>PIETRA FINA</h3>
+                            <p>40+ años de experiencia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="servicios-orbit">
+                        <div class="servicio-item" data-service="remodelaciones" style="--angle: 0deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i data-lucide="home" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                                </div>
+                                <h4>Remodelaciones</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="servicio-item" data-service="cocinas" style="--angle: 60deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i data-lucide="chef-hat" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                                </div>
+                                <h4>Cocinas</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="servicio-item" data-service="escaleras" style="--angle: 120deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stairs-icon lucide-stairs" style="color: white !important; fill: none !important; stroke: white !important;">
+                                        <rect width="10" height="4" x="2" y="16"/>
+                                        <rect width="10" height="4" x="4" y="12"/>
+                                        <rect width="10" height="4" x="6" y="8"/>
+                                        <rect width="10" height="4" x="8" y="4"/>
+                                        <path d="M12 20h10V4h-4"/>
+                                    </svg>
+                                </div>
+                                <h4>Escaleras</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="servicio-item" data-service="pisos" style="--angle: 180deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i data-lucide="layers" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                                </div>
+                                <h4>Pisos</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="servicio-item" data-service="mantenimiento" style="--angle: 240deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i data-lucide="wrench" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                                </div>
+                                <h4>Mantenimiento</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="servicio-item" data-service="diseno" style="--angle: 300deg;">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i data-lucide="palette" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                                </div>
+                                <h4>Diseño</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Panel -->
+                <div class="servicios-content-panel">
+                    <div class="content-item active" id="content-remodelaciones">
+                        <div class="content-header">
+                            <h3>Remodelaciones Integrales</h3>
+                            <p>Transformación completa de espacios con piedra natural de la más alta calidad</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Áreas de Trabajo</h4>
+                                <ul>
+                                    <li><i data-lucide="bath"></i> Baños y sanitarios</li>
+                                    <li><i data-lucide="chef-hat"></i> Cocinas y áreas de preparación</li>
+                                    <li><i data-lucide="home"></i> Salas y comedores</li>
+                                    <li><i data-lucide="tree-pine"></i> Terrazas y exteriores</li>
+                                    <li><i data-lucide="bed"></i> Dormitorios y áreas privadas</li>
+                                    <li><i data-lucide="building"></i> Oficinas y espacios comerciales</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Servicios Incluidos</h4>
+                                <ul>
+                                    <li><i data-lucide="ruler"></i> Diseño y planificación</li>
+                                    <li><i data-lucide="hammer"></i> Demolición y preparación</li>
+                                    <li><i data-lucide="layers"></i> Instalación de piedra</li>
+                                    <li><i data-lucide="paintbrush"></i> Acabados y detalles</li>
+                                    <li><i data-lucide="check-circle"></i> Supervisión y garantía</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item" id="content-cocinas">
+                        <div class="content-header">
+                            <h3>Cocinas Integrales</h3>
+                            <p>Cubiertas y elementos decorativos que elevan la funcionalidad y elegancia</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Materiales Premium</h4>
+                                <ul>
+                                    <li><i data-lucide="gem"></i> <strong>Granito</strong> - Resistencia y durabilidad</li>
+                                    <li><i data-lucide="sparkles"></i> <strong>Cuarzo</strong> - Elegancia y facilidad de mantenimiento</li>
+                                    <li><i data-lucide="mountain"></i> <strong>Cuarcita</strong> - Belleza natural única</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Aplicaciones</h4>
+                                <ul>
+                                    <li><i data-lucide="island"></i> Islas centrales</li>
+                                    <li><i data-lucide="coffee"></i> Barras desayunadoras</li>
+                                    <li><i data-lucide="layout"></i> Cubiertas integrales</li>
+                                    <li><i data-lucide="zap"></i> Elementos decorativos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item" id="content-escaleras">
+                        <div class="content-header">
+                            <h3>Escaleras de Piedra</h3>
+                            <p>Escalones y barandales que combinan funcionalidad con diseño arquitectónico excepcional</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Características</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stairs-icon lucide-stairs" style="color: black !important; fill: none !important; stroke: black !important;"><rect width="10" height="4" x="2" y="16"/><rect width="10" height="4" x="4" y="12"/><rect width="10" height="4" x="6" y="8"/><rect width="10" height="4" x="8" y="4"/><path d="M12 20h10V4h-4"/></svg> Escalones en mármol y piedra natural</li>
+                                    <li><i data-lucide="shield"></i> Barandales de diseño personalizado</li>
+                                    <li><i data-lucide="wrench"></i> Instalación profesional</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Valor Distintivo</h4>
+                                <p>Las escaleras de piedra son nuestro nicho especializado, utilizadas incluso cuando los pisos son de otros materiales, creando un contraste elegante y sofisticado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item" id="content-pisos">
+                        <div class="content-header">
+                            <h3>Pisos de Piedra</h3>
+                            <p>Materiales naturales para interiores y exteriores con tratamientos especializados</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Materiales</h4>
+                                <ul>
+                                    <li><i data-lucide="gem"></i> <strong>Mármol</strong> - Elegancia clásica</li>
+                                    <li><i data-lucide="shield"></i> <strong>Granito</strong> - Máxima resistencia</li>
+                                    <li><i data-lucide="mountain"></i> <strong>Canteras</strong> - Tradición mexicana</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Áreas de Aplicación</h4>
+                                <ul>
+                                    <li><i data-lucide="home"></i> Casas residenciales</li>
+                                    <li><i data-lucide="building"></i> Lobbies y áreas comunes</li>
+                                    <li><i data-lucide="map-pin"></i> Espacios públicos</li>
+                                    <li><i data-lucide="sun"></i> Interiores y exteriores</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item" id="content-mantenimiento">
+                        <div class="content-header">
+                            <h3>Mantenimiento y Reparación</h3>
+                            <p>Conservación y restauración especializada de superficies de piedra natural</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Servicios</h4>
+                                <ul>
+                                    <li><i data-lucide="droplets"></i> Limpieza especializada</li>
+                                    <li><i data-lucide="sparkles"></i> Pulido y restauración</li>
+                                    <li><i data-lucide="wrench"></i> Reparación de daños</li>
+                                    <li><i data-lucide="shield-check"></i> Mantenimiento preventivo</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Beneficios</h4>
+                                <ul>
+                                    <li><i data-lucide="clock"></i> Prolongación de vida útil</li>
+                                    <li><i data-lucide="heart"></i> Conservación de belleza natural</li>
+                                    <li><i data-lucide="trending-up"></i> Protección de inversión</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item" id="content-diseno">
+                        <div class="content-header">
+                            <h3>Diseño y Asesoría</h3>
+                            <p>Diseño de interiores y asesoría especializada para proyectos con piedra natural</p>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-column">
+                                <h4>Servicios de Diseño</h4>
+                                <ul>
+                                    <li><i data-lucide="layout"></i> Diseño de interiores</li>
+                                    <li><i data-lucide="lightbulb"></i> Asesoría en selección de materiales</li>
+                                    <li><i data-lucide="box"></i> Visualización 3D</li>
+                                    <li><i data-lucide="ruler"></i> Planos técnicos</li>
+                                </ul>
+                            </div>
+                            <div class="content-column">
+                                <h4>Especialización</h4>
+                                <ul>
+                                    <li><i data-lucide="building"></i> Proyectos hoteleros</li>
+                                    <li><i data-lucide="home"></i> Espacios residenciales</li>
+                                    <li><i data-lucide="briefcase"></i> Áreas comerciales</li>
+                                    <li><i data-lucide="church"></i> Espacios sacros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Layout - Accordion Style -->
+            <div class="servicios-mobile">
+                <div class="servicios-accordion">
+                    <div class="accordion-item active" data-service="remodelaciones">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <i data-lucide="home" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Remodelaciones Integrales</h4>
+                                <p>Transformación completa de espacios</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Áreas de Trabajo</h5>
+                                    <ul>
+                                        <li><i data-lucide="bath"></i> Baños y sanitarios</li>
+                                        <li><i data-lucide="chef-hat"></i> Cocinas y áreas de preparación</li>
+                                        <li><i data-lucide="home"></i> Salas y comedores</li>
+                                        <li><i data-lucide="tree-pine"></i> Terrazas y exteriores</li>
+                                        <li><i data-lucide="bed"></i> Dormitorios y áreas privadas</li>
+                                        <li><i data-lucide="building"></i> Oficinas y espacios comerciales</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Servicios Incluidos</h5>
+                                    <ul>
+                                        <li><i data-lucide="ruler"></i> Diseño y planificación</li>
+                                        <li><i data-lucide="hammer"></i> Demolición y preparación</li>
+                                        <li><i data-lucide="layers"></i> Instalación de piedra</li>
+                                        <li><i data-lucide="paintbrush"></i> Acabados y detalles</li>
+                                        <li><i data-lucide="check-circle"></i> Supervisión y garantía</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-service="cocinas">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <i data-lucide="chef-hat" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Cocinas Integrales</h4>
+                                <p>Cubiertas y elementos decorativos</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Materiales Premium</h5>
+                                    <ul>
+                                        <li><i data-lucide="gem"></i> <strong>Granito</strong> - Resistencia y durabilidad</li>
+                                        <li><i data-lucide="sparkles"></i> <strong>Cuarzo</strong> - Elegancia y facilidad de mantenimiento</li>
+                                        <li><i data-lucide="mountain"></i> <strong>Cuarcita</strong> - Belleza natural única</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Aplicaciones</h5>
+                                    <ul>
+                                        <li><i data-lucide="island"></i> Islas centrales</li>
+                                        <li><i data-lucide="coffee"></i> Barras desayunadoras</li>
+                                        <li><i data-lucide="layout"></i> Cubiertas integrales</li>
+                                        <li><i data-lucide="zap"></i> Elementos decorativos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-service="escaleras">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stairs-icon lucide-stairs" style="color: white !important; fill: none !important; stroke: white !important;">
+                                    <rect width="10" height="4" x="2" y="16"/>
+                                    <rect width="10" height="4" x="4" y="12"/>
+                                    <rect width="10" height="4" x="6" y="8"/>
+                                    <rect width="10" height="4" x="8" y="4"/>
+                                    <path d="M12 20h10V4h-4"/>
+                                </svg>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Escaleras de Piedra</h4>
+                                <p>Diseño arquitectónico excepcional</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Características</h5>
+                                    <ul>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stairs-icon lucide-stairs" style="color: black !important; fill: none !important; stroke: black !important;"><rect width="10" height="4" x="2" y="16"/><rect width="10" height="4" x="4" y="12"/><rect width="10" height="4" x="6" y="8"/><rect width="10" height="4" x="8" y="4"/><path d="M12 20h10V4h-4"/></svg> Escalones en mármol y piedra natural</li>
+                                        <li><i data-lucide="shield"></i> Barandales de diseño personalizado</li>
+                                        <li><i data-lucide="wrench"></i> Instalación profesional</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Valor Distintivo</h5>
+                                    <p>Las escaleras de piedra son nuestro nicho especializado, utilizadas incluso cuando los pisos son de otros materiales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-service="pisos">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <i data-lucide="layers" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Pisos de Piedra</h4>
+                                <p>Materiales naturales especializados</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Materiales</h5>
+                                    <ul>
+                                        <li><i data-lucide="gem"></i> <strong>Mármol</strong> - Elegancia clásica</li>
+                                        <li><i data-lucide="shield"></i> <strong>Granito</strong> - Máxima resistencia</li>
+                                        <li><i data-lucide="mountain"></i> <strong>Canteras</strong> - Tradición mexicana</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Áreas de Aplicación</h5>
+                                    <ul>
+                                        <li><i data-lucide="home"></i> Casas residenciales</li>
+                                        <li><i data-lucide="building"></i> Lobbies y áreas comunes</li>
+                                        <li><i data-lucide="map-pin"></i> Espacios públicos</li>
+                                        <li><i data-lucide="sun"></i> Interiores y exteriores</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-service="mantenimiento">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <i data-lucide="wrench" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Mantenimiento y Reparación</h4>
+                                <p>Conservación especializada</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Servicios</h5>
+                                    <ul>
+                                        <li><i data-lucide="droplets"></i> Limpieza especializada</li>
+                                        <li><i data-lucide="sparkles"></i> Pulido y restauración</li>
+                                        <li><i data-lucide="wrench"></i> Reparación de daños</li>
+                                        <li><i data-lucide="shield-check"></i> Mantenimiento preventivo</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Beneficios</h5>
+                                    <ul>
+                                        <li><i data-lucide="clock"></i> Prolongación de vida útil</li>
+                                        <li><i data-lucide="heart"></i> Conservación de belleza natural</li>
+                                        <li><i data-lucide="trending-up"></i> Protección de inversión</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-service="diseno">
+                        <div class="accordion-header">
+                            <div class="accordion-icon">
+                                <i data-lucide="palette" style="color: white !important; fill: white !important; stroke: white !important;"></i>
+                            </div>
+                            <div class="accordion-title">
+                                <h4>Diseño y Asesoría</h4>
+                                <p>Diseño de interiores especializado</p>
+                            </div>
+                            <div class="accordion-arrow">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-grid">
+                                <div class="content-column">
+                                    <h5>Servicios de Diseño</h5>
+                                    <ul>
+                                        <li><i data-lucide="layout"></i> Diseño de interiores</li>
+                                        <li><i data-lucide="lightbulb"></i> Asesoría en selección de materiales</li>
+                                        <li><i data-lucide="box"></i> Visualización 3D</li>
+                                        <li><i data-lucide="ruler"></i> Planos técnicos</li>
+                                    </ul>
+                                </div>
+                                <div class="content-column">
+                                    <h5>Especialización</h5>
+                                    <ul>
+                                        <li><i data-lucide="building"></i> Proyectos hoteleros</li>
+                                        <li><i data-lucide="home"></i> Espacios residenciales</li>
+                                        <li><i data-lucide="briefcase"></i> Áreas comerciales</li>
+                                        <li><i data-lucide="church"></i> Espacios sacros</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3459,7 +4442,7 @@
             updateSubtotal();
             modal.classList.add('active');
             
-            // Reinicializar iconos
+            // Reinicializar iconos (incluyendo lab)
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
@@ -3616,7 +4599,7 @@ Estoy interesado en el siguiente producto de Pietra Fina:
 
         // Event listeners para las tarjetas de proyectos
         document.addEventListener('DOMContentLoaded', () => {
-            // Inicializar iconos de Lucide
+            // Inicializar iconos de Lucide (incluyendo lab)
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
                 
@@ -3642,13 +4625,91 @@ Estoy interesado en el siguiente producto de Pietra Fina:
                         // Inicializar tabs después de abrir el modal
                         setTimeout(() => {
                             initTabs();
-                            // Reinicializar iconos de Lucide para los nuevos elementos
+                            // Reinicializar iconos de Lucide (incluyendo lab) para los nuevos elementos
                             if (typeof lucide !== 'undefined') {
                                 lucide.createIcons();
                             }
                         }, 100);
                     });
                 }
+            });
+
+            // ===== SERVICIOS CIRCULAR INTERACTIVE FUNCTIONALITY =====
+            const servicioItems = document.querySelectorAll('.servicio-item');
+            const contentItems = document.querySelectorAll('.content-item');
+
+            // Solo iconos de categorías en blanco
+            setTimeout(() => {
+                const servicioIcons = document.querySelectorAll('.servicio-icon i svg');
+                servicioIcons.forEach(icon => {
+                    icon.style.color = '#ffffff';
+                    icon.style.fill = '#ffffff';
+                    icon.style.stroke = '#ffffff';
+                });
+
+                const accordionIcons = document.querySelectorAll('.accordion-icon i svg');
+                accordionIcons.forEach(icon => {
+                    icon.style.color = '#ffffff';
+                    icon.style.fill = '#ffffff';
+                    icon.style.stroke = '#ffffff';
+                });
+
+                // Forzar específicamente el icono stairs (SVG directo)
+                const stairsIcons = document.querySelectorAll('.lucide-stairs');
+                stairsIcons.forEach(icon => {
+                    icon.style.color = '#ffffff';
+                    icon.style.fill = 'none';
+                    icon.style.stroke = '#ffffff';
+                });
+
+                // Forzar iconos stairs en contenido en negro
+                const contentStairsIcons = document.querySelectorAll('.content-column li .lucide-stairs');
+                contentStairsIcons.forEach(icon => {
+                    icon.style.color = '#000000';
+                    icon.style.fill = 'none';
+                    icon.style.stroke = '#000000';
+                });
+            }, 100);
+
+            // Desktop circular interaction
+            servicioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const serviceType = item.getAttribute('data-service');
+                    
+                    // Remove active class from all items
+                    servicioItems.forEach(si => si.classList.remove('active'));
+                    contentItems.forEach(ci => ci.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    item.classList.add('active');
+                    
+                    // Show corresponding content
+                    const targetContent = document.getElementById(`content-${serviceType}`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+
+            // ===== SERVICIOS ACCORDION FUNCTIONALITY =====
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                
+                header.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all accordion items
+                    accordionItems.forEach(accordionItem => {
+                        accordionItem.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
             });
         });
     </script>

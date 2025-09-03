@@ -27,3 +27,6 @@ Thumbs.db
 # Logs
 logs
 *.log
+
+# Wix files
+servicios-pietrafina-wix.html
